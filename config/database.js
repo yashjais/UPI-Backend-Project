@@ -12,4 +12,4 @@ const setUpDb = () => {
         })
 };
 
-module.exports = setUpDb ;
+module.exports = setUpDb;

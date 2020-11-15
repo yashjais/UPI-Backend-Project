@@ -1,5 +1,5 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
 // const authenticateUser = require('../app/middlewares/authentication')
 // const usersController = require('../app/controllers/UsersController')
@@ -11,4 +11,4 @@ const router = express.Router()
 // router.get('/user/account',authenticateUser, usersController.account)
 // router.delete('/user/logout', authenticateUser, usersController.logout)
 
-module.exports = router
+module.exports = router;
