@@ -99,11 +99,25 @@ userSchema.methods.generateToken = function() {
   user.tokens.push({ token });
   return user.save()
     .then(function (user) {
-      return Promise.resolve(token);
+      return Promise.resolve({ user, token });
     })
     .catch(function (err) {
       return Promise.reject(err);
     })
+}
+
+userSchema.statics.findByToken = function (token) {
+  const User = this;
+  let tokenData;
+  try {
+    tokenData = jwt.verify(token, jwtSignature);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+  return User.findOne({
+    _id: tokenData._id,
+    'tokens.token': token 
+  });
 }
 
 // pre hooks
